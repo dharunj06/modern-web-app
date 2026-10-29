@@ -1,0 +1,17 @@
+# Gitleaks Configuration: Pre-commit & CI Secret Prevention
+title = "DevOps Project Generator Gitleaks Baseline"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Global allowlist for mock/example secrets"
+paths = [
+  '''tests/.*''',
+  '''fixtures/.*''',
+  '''\.devcontainer/.*'''
+]
+regexes = [
+  '''example-api-key''',
+  '''YOUR_KEY_HERE'''
+]

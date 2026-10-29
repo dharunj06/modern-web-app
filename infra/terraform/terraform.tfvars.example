@@ -1,0 +1,7 @@
+project_name = "modern-web-app"
+environment  = "dev"
+aws_region   = "us-east-1"
+node_instance_types = ["t3.medium"]
+min_nodes    = 2
+max_nodes    = 5
+desired_nodes = 2

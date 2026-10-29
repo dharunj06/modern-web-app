@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: modern-web-app-service
+spec:
+  type: ClusterIP
+  selector:
+    app: modern-web-app
+    version: blue # Change to 'green' to switch traffic instantly
+  ports:
+  - port: 80
+    targetPort: 8080

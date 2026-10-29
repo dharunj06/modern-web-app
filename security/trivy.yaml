@@ -1,0 +1,14 @@
+timeout: 10m
+severity:
+  - CRITICAL
+  - HIGH
+exit-code: 1
+ignore-unfixed: true
+vuln-type:
+  - os
+  - library
+scan:
+  scanners:
+    - vuln
+    - config
+    - secret

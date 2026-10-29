@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: modern-web-app-green
+  labels:
+    app: modern-web-app
+    version: green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: modern-web-app
+      version: green
+  template:
+    metadata:
+      labels:
+        app: modern-web-app
+        version: green
+    spec:
+      containers:
+      - name: web
+        image: modern-web-app:1.1.0
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
